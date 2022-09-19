@@ -1,0 +1,170 @@
+* { /*para remover os espaços em branco da página provocados pelo navegador */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* para considerar apenas o tamanho definido para a página */
+}
+
+ul {
+    list-style: none;
+}
+
+
+body {
+   background-image: url(./assets/bg.jpg); /* para adicionar uma imagem de fundo */
+    background-position: top center; /* para ficar no topo e centralizada */
+    background-size: 100% auto; /* para ficar 100% da largura e altura automática */
+    background-repeat: no-repeat; /* para não repetir o background */
+    background-color: #121214; 
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    line-height: 160%; /* altura da linha */
+}
+
+/* main * {
+    border: 1px solid red;
+} */
+
+header {
+    padding-top: 32px;
+    height: calc(120px + 32px);
+    /* text-align: center;  alinhamento da imagem (a img é lida (tem propriedade) como texto) - Excluída nesta Aula 04 */
+}
+
+header div {
+    width: 120px;
+    margin: auto; /* para ajustar o alinhamento centralizado */
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%); /* cor gradiente do fundo */
+
+    border-radius: 50%;
+
+    display: flex; /* para ajustar a imagem à borda */
+    padding: 4px; /* para ajustar a largura da borda */
+
+    transition: transform .2s; /* ajuste da transição - que receberá uma 'transformação' */
+}
+
+header div:hover { /* quando passar o cursor sobre a div, o efeito será aplicado */
+    transform: scale(1.1);
+}
+
+header div img {
+    width: 100%; /* este tamanho está relacionado à 'div' acima */
+    border-radius: 50%;    
+}
+
+main {
+    max-width: 580px; /* largura máxima da página */
+    width: 90%; /* para ocupar 90% da tela */
+    /* margin: auto;  ajuste automático da margem  -> excluído nesta Aula 04*/
+    margin: 32px auto;
+
+    display: grid; /* para permitir o posicionamento vertical das caixas da Main */
+    gap: 24px; /* espaço entre as caixas da main */
+
+    /* margin-top: 32px; -> excluído nesta Aula 04 */    
+}
+
+section {
+    color: white;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%); /* cor gradiente do fundo */
+    padding-top: 4px;
+    border-radius: 10px;
+}
+
+section div {
+    background-color: #2A2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+}
+
+section h2 {
+    letter-spacing: -0.47px; /* espaço entre as letras */
+}
+
+section p {
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+
+section ul {
+    display: flex; /* relacionado à visualização das caixas (li`s dentro da ul) para serem posicionados 'em linha' */
+    flex-wrap: wrap; /* vai jogar os demais itens (li) para baixo se forem adicionados */
+    gap: 16px; /* espaço entre as caixas */
+
+    margin-top: 24px; /* margem superior da ul */
+}
+
+section ul li {
+    transition: transform .4s;
+}
+
+section ul li:hover {
+    transform: scale(1.1);
+}
+
+.games-list img {
+    width: 90px;
+    border-radius: 8px;
+}
+
+.channel-list img {
+    border-radius: 50%; /* arredondamento da borda */
+    width: 70px;
+    border: 1px solid#443E54;
+}
+
+/* ANIMAÇÃO */
+
+/* keyframes é o recurso para se utiliza a animação, como uma 'chamada da função'.
+    fromTop é um nome qualquer para a animação */
+
+
+header div {
+    animation: fromTop .7s backwards; /* backwards - serve para 'puxar' as propriedades declaradas a seguir, opacity e transform */
+    animation-delay: .2s; /* espera de 0.4s para iniciar as propriedades seguintes */
+}
+
+main section {
+    animation: fromBottom .7s backwards;
+}
+
+main section:nth-child(1) { /* section filho nº 1 */
+    animation-delay: 0;
+
+}
+
+main section:nth-child(2) {
+    animation-delay: .4s;
+}
+
+main section:nth-child(3) {
+    animation-delay: .8s;
+}
+
+@keyframes fromTop {
+    from { /* início */
+        opacity: 0;
+        transform: translateY(-30px);
+    } 
+
+    to { /* fim */
+        opacity: 1;
+        transform: translateY(0); /* eixo Y */
+    } 
+}
+
+@keyframes fromBottom {
+    from { /* início */
+        opacity: 0;
+        transform: translateY(30px);
+    } 
+
+    to { /* fim */
+        opacity: 1;
+        transform: translateY(0); /* eixo Y */
+    } 
+    
+}
